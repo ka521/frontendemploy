@@ -1,0 +1,80 @@
+  .site-header { 
+	border-bottom: 1px solid #ccc;
+	padding: .5em 1em;
+	display: flex;
+	justify-content: space-between;
+	background-color: rgba(243, 243, 243, 0.8);
+	a{
+		color: 3498db;
+	}
+  }
+
+  
+  .site-identity h1 {
+	font-size: 1.5em;
+	margin: .6em 0;
+	display: inline-block;
+	
+  }
+  
+  
+  .site-navigation ul, 
+  .site-navigation li {
+	margin: 0; 
+	padding: 0;
+  }
+  
+  .site-navigation li {
+	display: inline-block;
+	margin:0.6 em;
+  }
+
+  //@at-root
+  .btn {
+	appearance: none;
+	  -webkit-appearance: none;
+	font-family: sans-serif;
+	cursor: pointer;
+	padding: 12px;
+	min-width: 100px;
+	border: 0px;
+	  -webkit-transition: background-color 100ms linear;
+	  -ms-transition: background-color 100ms linear;
+	   transition: background-color 100ms linear;
+	   color: #c90a0a;
+	display: inline-block;
+	text-align: center;
+  }
+  
+  .btn:focus, .btn.focus {
+	outline: 0;
+  }
+  
+  .btn-round-1 {
+	border-radius: 20px;
+  }
+  
+  .btn-round-2 {
+	border-radius: 20px;
+  }
+
+  
+  .btn-light {
+	background: #ededed;
+	color: #3498db;
+  }
+  
+  .btn-light:hover {
+	background: #dbdbdb;
+	color: #3498db;
+  }
+  
+  .btn-active {
+	background: #08cc60;
+	color: #ffffff!important;
+  }
+  
+  .btn-active:hover {
+	background: #2980b9;
+	color: #ffffff;
+  }
