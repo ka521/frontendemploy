@@ -78,7 +78,7 @@ export default function TeamComponent() {
 					<td>{employee.fullName}</td>
 					<td>{employee.phoneNumber}</td>
 					<td>{employee.address}</td>
-					<td>{employee.sex}</td>
+					<td>{employee.gender}</td>
 				</tr>
 			);
 		});
