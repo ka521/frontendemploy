@@ -1,5 +1,7 @@
 import './EmployeeDetail.scss';
 import 'antd/dist/antd.css';
+import { UserOutlined } from '@ant-design/icons';
+
 import {
 	Tabs,
 	Row,
@@ -293,15 +295,8 @@ function EmployeeDetail(props) {
 				>
 					<Avatar
 						src={valueForm.ImageUrl}
-						size={{
-							xs: 24,
-							sm: 32,
-							md: 40,
-							lg: 64,
-							xl: 80,
-							xxl: 100,
-						}}
-						icon={<AntDesignOutlined />}
+						shape="square" size="large"
+						icon={<UserOutlined />}
 					/>
 					{/* <Image
 						width={100}
