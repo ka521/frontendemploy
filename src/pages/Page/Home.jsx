@@ -51,7 +51,7 @@ export default function Home(props) {
 		fetchData();
 	}, [render]);
 
-	//mai nhứ làm chỗ search với delete
+	
 
 	const totalEmployees = employeeList.length;
 	return (

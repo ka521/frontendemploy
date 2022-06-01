@@ -1,21 +1,21 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import EmployeeManagerComponent from './pages/Page/Home';
+import EmployeeComponent from './pages/Page/Home';
 
 import TeamComponent from './pages/Teams/TeamDetail';
-import HeaderHome from './components/Header/Header';
+import Header from './components/Header/Header';
 import DetailEmployee from './pages/EmployeeDetail/EmployeeDetail';
 
 function App() {
   return (
     <BrowserRouter>
-      <HeaderHome />
+      <Header />
       <Switch>
-        <Route exact path={'/home'} component={EmployeeManagerComponent} />
+        <Route exact path={'/home'} component={EmployeeComponent} />
         <Route exact path={'/team'} component={TeamComponent} />
-        <Route exact path={'/employee'} component={EmployeeManagerComponent} />
+        <Route exact path={'/employee'} component={EmployeeComponent} />
         <Route exact path={'/:id'} component={DetailEmployee} />
-        <Route exact path={'/'} component={EmployeeManagerComponent} />
+        <Route exact path={'/'} component={EmployeeComponent} />
       </Switch>
     </BrowserRouter>
   );
