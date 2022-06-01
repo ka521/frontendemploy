@@ -8,14 +8,10 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 
-// const formData = new formData();
+
 
 function HeadContainer(props) {
-	// type Props = {
-	//     some?: any,
-	//     style?: string,
-	//     Modal?: any
-	// };
+
 	const { renderPage, selectedDelete } = props;
 	const [valueForm, setvalueForm] = useState({
 		fullname: '',
@@ -32,7 +28,7 @@ function HeadContainer(props) {
 	const [teamList, setTeamList] = useState([]);
 	useEffect(() => {
 		async function getTeamList() {
-			// SetLoading(true);
+		
 			const response = await axios.get(
 				`http://localhost:8080/api/team/listTeam`
 			);
@@ -118,9 +114,9 @@ function HeadContainer(props) {
 		} catch (e) {
 			console.log(e);
 		}
-		//truyền mảng vô data là dc
+		
 	};
-	// const { Option } = Select;
+	
 	const formItemLayout = {
 		labelCol: {
 			span: 6,
@@ -134,11 +130,6 @@ function HeadContainer(props) {
 		console.log('Upload event:', e);
 		console.log('Test', e.file);
 
-		// if (Array.isArray(e)) {
-		// 	return e;
-		// }
-
-		// return e && e.fileList;
 	};
 
 	const onFinish = (values) => {
@@ -153,7 +144,7 @@ function HeadContainer(props) {
 
 	const handleOk = async () => {
 		console.log(valueForm);
-		// const isEmpty = Object.values(valueForm).some((x) => x === '');
+	
 		const isEmpty = Object.values(valueForm).every((x) => x !== '');
 		console.log(isEmpty);
 		const form = new FormData();
@@ -192,10 +183,7 @@ function HeadContainer(props) {
 				throw new Error('Fail to post this datta');
 			}
 		} else {
-			// setIsModalVisible(false);
-			// resetForm();
-
-			// var form = new FormData();
+			
 			toast.error('Vui lòng điền đầy đủ các trường');
 			console.log('văng');
 			onFinish();
@@ -233,12 +221,7 @@ function HeadContainer(props) {
 			>
 				<Form
 					{...formItemLayout}
-					// onFinish={onFinish}
-					// initialValues={{
-					// 	'input-number': 3,
-					// 	'checkbox-group': ['A', 'B'],
-					// 	rate: 3.5,
-					// }}
+					
 					autoComplete='off'
 					onFinish={onFinish}
 				>
@@ -254,7 +237,7 @@ function HeadContainer(props) {
 						]}
 					>
 						<Input
-							// disabled
+							
 							placeholder='Type your name'
 							onChange={onChangeForm}
 							name='fullname'
@@ -292,7 +275,7 @@ function HeadContainer(props) {
 					>
 						<Select
 							onChange={onChangeFormSelect}
-							// name='gender'
+							
 							value={valueForm.gender}
 						>
 							<Select.Option value='Male'>Male</Select.Option>
@@ -314,7 +297,7 @@ function HeadContainer(props) {
 						<Input
 							onChange={onChangeForm}
 							name='age'
-							// type={'number'}
+							
 							value={valueForm.age}
 						/>
 					</Form.Item>
@@ -332,7 +315,7 @@ function HeadContainer(props) {
 						<DatePicker
 							onChange={onChangeDatePicker}
 							name='startday'
-							// type={'number'}
+							
 						/>
 					</Form.Item>
 
@@ -350,31 +333,21 @@ function HeadContainer(props) {
 						<Input
 							onChange={onChangeForm}
 							name='moneyperhour'
-							// type={'number'}
+							
 							value={valueForm.moneyperhour}
 						/>
 					</Form.Item>
 
 					<Form.Item
-						// name='upload'
+						
 						label='Upload image'
-						// valuePropName='fileList'
-						// getValueFromEvent={normFile}
-						// onChange={(e) => console.log(e)}
-						// name='image'
-						// hasFeedback
-						// rules={[
-						// 	{
-						// 		required: true,
-						// 		message: 'Please upload Image!',
-						// 	},
-						// ]}
+						
 					>
-						{/* <Upload name='logo' action='/upload.do' listType='picture'></Upload> */}
+						
 						<Upload
 							listType='picture'
 							action={''}
-							// accept='.png,.jpeg'
+						
 							onChange={onChangeFormUpload}
 							customRequest={dummyRequest}
 						>
@@ -391,22 +364,18 @@ function HeadContainer(props) {
 								message: 'Please input phone Number!',
 							},
 							{
-								// pattern: new RegExp('([0-9]{10}\\s*)+'),
-								// pattern: new RegExp('[0-9]{10}/g'),
-								pattern: new RegExp('((09|03|07|08|05)+([0-9]{8}))$'), //That's true regex VietNam number
+							
+								pattern: new RegExp('((09|03|07|08|05)+([0-9]{8}))$'), 
 
 								message: 'phone number must have 10 number',
 							},
-							// {
-							// 	type: 'number',
-							// 	message: 'The input is not valid Number!',
-							// },
+						
 						]}
 					>
 						<Input
 							onChange={onChangeForm}
 							name='phonenumber'
-							// type={'number'}
+							
 							value={valueForm.phonenumber}
 						/>
 					</Form.Item>
@@ -425,7 +394,7 @@ function HeadContainer(props) {
 						<Input
 							onChange={onChangeForm}
 							name='totalhours'
-							// type={'number'}
+						
 							value={valueForm.totalhours}
 						/>
 					</Form.Item>
@@ -455,16 +424,7 @@ function HeadContainer(props) {
 								})}
 						</Select>
 					</Form.Item>
-					{/* <Form.Item
-						wrapperCol={{
-							span: 12,
-							offset: 6,
-						}}
-					>
-						<Button type='primary' htmlType='submit'>
-							Submit
-						</Button>
-					</Form.Item> */}
+				
 				</Form>
 			</Modal>
 		</>

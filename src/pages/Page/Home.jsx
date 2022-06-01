@@ -73,13 +73,13 @@ export default function Home(props) {
 						<div className='search-block__search-input'>
 							<Input
 								placeholder='input search text'
-								// onChange={onSearch}
+								
 								style={{ width: 200 }}
 								onChange={(e) => {
-									// setInputSearch(e.target.value);
+									
 									onSearch(e.target.value);
 								}}
-								// value={inputSearch}
+							
 							/>
 						</div>
 					</div>

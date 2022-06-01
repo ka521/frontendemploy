@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import { FaTrashAlt, FaInfo } from 'react-icons/fa';
-// import { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import { Table, Space, Modal } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
@@ -9,11 +9,6 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 const { confirm } = Modal;
 
-// getCheckboxProps: (record) => ({
-// 	disabled: record.name === 'Disabled User',
-// 	// Column configuration not to be checked
-// 	name: record.name,
-// }),
 
 const TableUI = (props) => {
 	const { renderPage, getSelected } = props;
@@ -53,7 +48,7 @@ const TableUI = (props) => {
 		{
 			title: 'Option',
 			key: 'id',
-			// dataIndex: 'option',
+		
 			render: (data) => (
 				<Space size='middle'>
 					<Link to={`/${data.id}`}>
@@ -76,12 +71,11 @@ const TableUI = (props) => {
 			confirm({
 				title: 'Are you sure to delete employee ?',
 				icon: <ExclamationCircleOutlined />,
-				// content:
-				// 	'When clicked the OK button, this dialog will be closed after 1 second',
+			
 				async onOk() {
 					try {
 						const response = await axios.delete(
-							// `http://localhost:8080/api/employees/${data}`
+						
 							`http://localhost:8080/api/employees/delete/${data}`
 						);
 						console.log(response);

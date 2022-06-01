@@ -15,7 +15,7 @@ import {
 	Button,
 } from 'antd';
 import Working from '../../components/Working/Working';
-import Information from '../../components/Information/Information';
+
 import Advances from '../../components/Advances/Advances';
 import { useHistory, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -39,10 +39,7 @@ function callback(key) {
 }
 
 function EmployeeDetail(props) {
-	// type Props = {
-	//     some?: any,
-	//     style?: string,
-	// };
+
 	const { render, renderPage } = props;
 	function handleEdit() {}
 
@@ -63,11 +60,10 @@ function EmployeeDetail(props) {
 		ImageUrl: '',
 	});
 	const history = useHistory();
-	// console.log(id);
-
+	
 	useEffect(() => {
 		async function getEmployee() {
-			// SetLoading(true);
+		
 			const response = await axios.get(
 				`http://localhost:8080/api/employees/getbyid/${id}`
 			);
@@ -99,12 +95,11 @@ function EmployeeDetail(props) {
 			confirm({
 				title: 'Are you sure to delete employee ?',
 				icon: <ExclamationCircleOutlined />,
-				// content:
-				// 	'When clicked the OK button, this dialog will be closed after 1 second',
+				
 				async onOk() {
 					try {
 						const response = await axios.delete(
-							// `http://localhost:8080/api/employees/${data}`
+						
 							`http://localhost:8080/api/employees/delete/${id}`
 						);
 						console.log(response);
@@ -123,15 +118,14 @@ function EmployeeDetail(props) {
 		showPromiseConfirm(id);
 	}
 
-	console.log('set state', employees);
-	console.log('set value form', valueForm);
+
 
 	const {
 		address,
 		age,
 		fullName,
 		gender,
-		// employeeId,
+	
 		imageURL,
 		moneyPerHour,
 		phoneNumber,
@@ -140,18 +134,7 @@ function EmployeeDetail(props) {
 		totalHours,
 	} = employees;
 
-	// valueForm({
-	// 	fullname: fullName,
-	// 	age: age,
-	// 	address: address,
-	// 	gender: gender,
-	// 	phonenumber: phoneNumber,
-	// 	startday: startDay,
-	// 	totalhours: totalHours,
-	// 	moneyperhour: moneyPerHour,
-	// 	// employeeteam: teamInfo.name,
-	// 	ImageUrl: imageURL,
-	// });
+
 	const formItemLayout = {
 		labelCol: {
 			span: 6,
@@ -212,7 +195,7 @@ function EmployeeDetail(props) {
 
 	const handleOk = async () => {
 		console.log(valueForm);
-		// const isEmpty = Object.values(valueForm).some((x) => x === '');
+		
 		const isEmpty = Object.values(valueForm).every((x) => x !== '');
 		console.log(isEmpty);
 		const form = new FormData();
@@ -267,10 +250,7 @@ function EmployeeDetail(props) {
 				console.log(error);
 			}
 		} else {
-			// setIsModalVisible(false);
-			// resetForm();
-
-			// var form = new FormData();
+		
 			toast.error('Vui lòng điền đầy đủ các trường');
 			console.log('văng');
 			onFinish();
@@ -298,23 +278,10 @@ function EmployeeDetail(props) {
 						shape="square" size="large"
 						icon={<UserOutlined />}
 					/>
-					{/* <Image
-						width={100}
-						height={100}
-						preview={{
-							src: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-						}}
-						style={{ objectFit: 'cover', borderRadius: '50px' }}
-						src='https://newsmd1fr.keeng.net/tiin/archive/images/20210215/191503_batch_148189203_1082353422243802_7176013939645211715_o.jpg'
-					/> */}
+				
 					<Form
 						{...formItemLayout}
-						// onFinish={onFinish}
-						// initialValues={{
-						// 	'input-number': 3,
-						// 	'checkbox-group': ['A', 'B'],
-						// 	rate: 3.5,
-						// }}
+					
 						autoComplete='off'
 						onFinish={onFinish}
 					>
@@ -322,7 +289,7 @@ function EmployeeDetail(props) {
 							<Col span={12}>
 								<Form.Item label='Full name'>
 									<Input
-										// placeholder='Type your name'
+										
 										onChange={onChangeForm}
 										name='fullname'
 										hasFeedback
@@ -339,7 +306,7 @@ function EmployeeDetail(props) {
 							<Col span={12}>
 								<Form.Item label='Address'>
 									<Input
-										// placeholder='Type your name'
+										
 										onChange={onChangeForm}
 										name='address'
 										value={valueForm.address}
@@ -359,8 +326,7 @@ function EmployeeDetail(props) {
 								<Form.Item label='Start day'>
 									<Input
 										disabled
-										// placeholder='Type your name'
-										// onChange={onChangeForm}
+										
 										name='startday'
 										value={moment(valueForm.startday)
 											.utc()
@@ -372,8 +338,7 @@ function EmployeeDetail(props) {
 								<Form.Item label='Money Per Hour'>
 									<Input
 										disabled
-										// placeholder='Type your name'
-										// onChange={onChangeForm}
+										
 										name='moneyperhour'
 										value={valueForm.moneyperhour}
 									/>
@@ -383,26 +348,12 @@ function EmployeeDetail(props) {
 						<Row>
 							<Col span={12}>
 								<Form.Item
-									// name='phonenumber'
+									
 									label='Phone Number'
-									// hasFeedback
-									// rules={[
-									// 	{
-									// 		required: true,
-									// 		message: 'Please input phone Number!',
-									// 	},
-									// 	{
-									// 		// pattern: new RegExp('([0-9]{10}\\s*)+'),
-									// 		// pattern: new RegExp('[0-9]{10}/g'),
-									// 		pattern: new RegExp('((09|03|07|08|05)+([0-9]{8}))$'), //That's true regex VietNam number
-
-									// 		message: 'phone number must have 10 number',
-									// 	},
-									// ]}
+									
 								>
 									<Input
-										// disabled
-										// placeholder='Type your name'
+										
 										onChange={onChangeForm}
 										name='phonenumber'
 										value={valueForm.phonenumber}
@@ -413,8 +364,7 @@ function EmployeeDetail(props) {
 								<Form.Item label='Total hours'>
 									<Input
 										disabled
-										// placeholder='Type your name'
-										// onChange={onChangeForm}
+										
 										name='fullname'
 										value={valueForm.totalhours}
 									/>
@@ -481,8 +431,7 @@ function EmployeeDetail(props) {
 							<Tabs type='card' defaultActiveKey='1' onChange={callback}>
 								<TabPane tab='INFORMATION' key='information'>
 									<div className='head_container'>
-										{/* <Information name='hihi' /> */}
-										{/* <h1>INFORMATION</h1> */}
+										
 
 										<div className='head_container__title'>
 											<b>INFORMATION</b>
